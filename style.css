@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --green: #315c39;
+    --dark-green: #193d2c;
+    --light-green: #eaf0df;
+    --cream: #faf9f1;
+    --text: #263c2e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input {
+    font: inherit;
+}
+
+/* แถบเมนูหลัก */
+.navbar {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px 4%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    background: #fffef8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px #203d2810;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    line-height: 1.4;
+}
+
+.navbar nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.navbar nav a {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #263c2e;
+    transition: color 0.2s;
+}
+
+.navbar nav a:hover {
+    color: #72934c;
+}
+
+/* ========================================== */
+/* ตำแหน่งรูปภาพหน้าปก (Hero Section)           */
+/* เปลี่ยนที่อยู่ไฟล์รูปภาพตรง url('...') ด้านล่างได้เลยครับ */
+/* ========================================== */
+.hero {
+    min-height: 480px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 65px 20px;
+    color: white;
+    background: 
+        linear-gradient(
+            rgba(15, 48, 34, 0.75),
+            rgba(15, 48, 34, 0.75)
+        ),
+        url("images/unnamed (1).webp") center / cover no-repeat, /* ใส่ไฟล์รูปหน้าปกที่นี่ */
+        #24472d; /* สีสำรองกรณีไม่มีรูป */
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.tagline, .section-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+
+.tagline {
+    color: #d3e7a9;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.35;
+    margin: 14px 0;
+    color: #f5f5df;
+}
+
+.hero h1 span {
+    color: #ffffff;
+}
+
+.hero p {
+    max-width: 640px;
+    margin: 0 auto 25px;
+    color: #f2f6ee;
+    font-weight: 300;
+}
+
+.search-box {
+    background: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 8px 7px 20px;
+    max-width: 680px;
+    margin: 0 auto;
+    box-shadow: 0 8px 30px #0002;
+}
+
+.search-icon {
+    color: var(--green);
+    font-size: 24px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    color: #263c2e;
+    background: transparent;
+}
+
+.search-box button {
+    border: none;
+    border-radius: 40px;
+    background: var(--green);
+    color: white;
+    padding: 10px 28px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-box button:hover {
+    background: #24472d;
+}
+
+/* หัวข้อ */
+.plant-section, .propagation-section {
+    padding: 65px 6%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-label {
+    color: #72934c;
+}
+
+.section-heading h2 {
+    font-size: clamp(25px, 4vw, 34px);
+    color: var(--dark-green);
+    margin: 5px 0;
+}
+
+.section-heading p {
+    color: #6d7b6b;
+    font-size: 15px;
+}
+
+/* ปุ่มกรอง */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    border: 1px solid #d4dfce;
+    background: white;
+    color: var(--green);
+    padding: 8px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+/* การ์ดพืช */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.plant-card {
+    background: white;
+    border: 1px solid #e5e7dd;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #203d280b;
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #203d2818;
+}
+
+/* รูปภาพบนการ์ดพืช */
+.plant-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #e4ebe0;
+}
+
+.plant-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.plant-info h3 {
+    font-size: 20px;
+    color: var(--dark-green);
+    margin-bottom: 6px;
+}
+
+.plant-code {
+    font-size: 13px;
+    font-weight: 600;
+    color: #72934c;
+    margin-bottom: 6px;
+}
+
+.plant-category-text {
+    color: #6b796c;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.plant-info button {
+    border: none;
+    background: var(--light-green);
+    color: var(--green);
+    padding: 9px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: auto;
+    transition: 0.2s;
+}
+
+.plant-info button:hover {
+    background: var(--green);
+    color: white;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #6b796c;
+}
+
+/* การขยายพันธุ์ */
+.propagation-section {
+    background: #f0f3e8;
+}
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.method-card {
+    background: #fffef9;
+    border-radius: 15px;
+    padding: 30px 24px;
+    text-align: center;
+    border: 1px solid #e0e8d8;
+}
+
+.method-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.method-card h3 {
+    color: var(--dark-green);
+    margin-bottom: 8px;
+}
+
+.method-card p {
+    color: #6b796c;
+    font-size: 14px;
+}
+
+/* จุดเด่นเว็บไซต์ */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    padding: 50px 8%;
+}
+
+.features article {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 36px;
+}
+
+.features h3 {
+    margin: 8px 0;
+    color: var(--dark-green);
+}
+
+.features p {
+    font-size: 14px;
+    color: #6b796c;
+}
+
+footer {
+    background: var(--dark-green);
+    color: #f3f6ed;
+    text-align: center;
+    padding: 24px;
+    font-size: 13.5px;
+}
+
+/* ปุ่มดูรายละเอียดการขยายพันธุ์ */
+.method-detail-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background-color: #315c39;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.method-detail-btn:hover {
+    background-color: #4d8056;
+    transform: translateY(-3px);
+}
+
+/* รูปแบบหัวข้อและรายละเอียดใน Pop-up */
+#plantDetails h2 {
+    color: #315c39;
+    margin-bottom: 15px;
+}
+
+#plantDetails p {
+    line-height: 1.8;
+}
+dialog#plantDialog.plant-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: min(92vw, 680px);
+    height: fit-content;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px 24px;
+    border: none;
+    border-radius: 16px;
+    background-color: #ffffff;
+    color: var(--text);
+    box-shadow: 0 20px 45px rgba(25, 61, 44, 0.28);
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+dialog#plantDialog.plant-dialog::backdrop {
+    background-color: rgba(15, 48, 34, 0.55);
+}
+
+dialog#plantDialog .close-btn {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dialog-plant-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    display: block;
+}
+#plantDetails h2 {
+    color: var(--green);
+    margin-top: 0;
+    margin-bottom: 14px;
+    padding-right: 40px;
+}
+
+#plantDetails p {
+    margin-bottom: 12px;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+}

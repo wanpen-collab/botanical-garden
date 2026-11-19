@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฐานข้อมูลพันธุ์พืช - สวนพฤกษศาสตร์ วิทยาลัยเทคนิควังน้ำเย็น</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- แถบเมนูหลัก -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">🌿</span>
+            <span class="logo-text">
+                <small>การพัฒนาเว็บไซต์สวนพฤกษศาสตร์</small>
+                <strong>วิทยาลัยเทคนิควังน้ำเย็น</strong>
+            </span>
+        </a>
+        <nav>
+            <a href="#home">หน้าหลัก</a>
+            <a href="#plants">ค้นหาพันธุ์พืช</a>
+            <a href="#propagation">การขยายพันธุ์</a>
+            <a href="#about">เกี่ยวกับเรา</a>
+        </nav>
+    </header>
+
+    <!-- ส่วนภาพหน้าปก (กำหนดรูปภาพพื้นหลังผ่าน CSS) -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                สวนพฤกษศาสตร์<br>
+                <span>วิทยาลัยเทคนิควังน้ำเย็น</span>
+            </h1>
+            <p>
+                ค้นพบข้อมูลพันธุ์พืช เรียนรู้ลักษณะเด่น สรรพคุณ และถิ่นกำเนิด 
+                เพื่อการอนุรักษ์ธรรมชาติอย่างยั่งยืน
+            </p>
+
+            <form class="search-box" id="searchForm">
+                <span class="search-icon">⌕</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="ค้นหาชื่อพืช รหัส หรือสรรพคุณ เช่น ลีลาวดี เข็ม หว้า..."
+                    aria-label="ค้นหาพันธุ์พืช"
+                >
+                <button type="submit">ค้นหา</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ฐานข้อมูลพืช -->
+    <main>
+        <section class="plant-section" id="plants">
+            <div class="section-heading">
+                <span class="section-label">DISCOVER PLANTS</span>
+                <h2>ฐานข้อมูลพันธุ์พืช</h2>
+                <p>เลือกดูพืชที่คุณสนใจ พร้อมข้อมูลเชิงพฤกษศาสตร์และสรรพคุณสมุนไพร</p>
+            </div>
+
+            <!-- ปุ่มกรองประเภทพืช -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="ทั้งหมด">ทั้งหมด</button>
+                <button class="filter-btn" data-category="ไม้พุ่ม">ไม้พุ่ม</button>
+                <button class="filter-btn" data-category="ไม้ต้นสูง">ไม้ต้นสูง</button>
+                <button class="filter-btn" data-category="ไม้ต้น">ไม้ต้น</button>
+                <button class="filter-btn" data-category="ปาล์ม">ปาล์ม</button>
+                <button class="filter-btn" data-category="ไม้ล้มลุก">ไม้ล้มลุก</button>
+            </div>
+
+            <!-- แสดงรายการพืชด้วย JavaScript -->
+            <div class="plant-grid" id="plantGrid"></div>
+
+            <p class="no-results" id="noResults" hidden>
+                ไม่พบพันธุ์พืชที่ค้นหา ลองค้นหาด้วยคำอื่น
+            </p>
+        </section>
+
+        <!-- การขยายพันธุ์ -->
+        <section class="propagation-section" id="propagation">
+            <div class="section-heading">
+                <span class="section-label">PLANT LEARNING</span>
+                <h2>เรียนรู้การขยายพันธุ์พืช</h2>
+                <p>ทำความรู้จักวิธีเพิ่มจำนวนพืชที่พบได้ทั่วไป</p>
+            </div>
+
+            <article class="method-card">
+    <div class="method-grid">
+    <article class="method-card">
+        <div class="method-icon">🌱</div>
+        <h3>การเพาะเมล็ด</h3>
+        <p>เรียนรู้การเตรียมเมล็ด การเพาะ และการดูแลต้นกล้า</p>
+        <button type="button" class="method-detail-btn" data-method="seed">ดูรายละเอียดเพิ่มเติม →</button>
+    </article>
+
+    <article class="method-card">
+        <div class="method-icon">🌾</div>
+        <h3>การปักชำ</h3>
+        <p>เรียนรู้การใช้ส่วนของพืชเพื่อให้เกิดรากและต้นใหม่</p>
+        <button type="button" class="method-detail-btn" data-method="cutting">ดูรายละเอียดเพิ่มเติม →</button>
+    </article>
+
+    <article class="method-card">
+        <div class="method-icon">🌿</div>
+        <h3>การตอนกิ่ง</h3>
+        <p>เรียนรู้การทำให้กิ่งออกรากก่อนแยกไปปลูก</p>
+        <button type="button" class="method-detail-btn" data-method="grafting">ดูรายละเอียดเพิ่มเติม →</button>
+    </article>
+</div>
+        </section>
+
+        <!-- จุดเด่นของเว็บไซต์ -->
+        <section class="features" id="about">
+            <article>
+                <span class="feature-icon">📖</span>
+                <h3>ข้อมูลพรรณไม้</h3>
+                <p>ศึกษาชื่อ ลักษณะเด่น สรรพคุณ และถิ่นกำเนิด</p>
+            </article>
+            <article>
+                <span class="feature-icon">🌱</span>
+                <h3>เรียนรู้วิธีขยายพันธุ์</h3>
+                <p>รวบรวมแนวทางการขยายพันธุ์พืชเบื้องต้น</p>
+            </article>
+            <article>
+                <span class="feature-icon">🌏</span>
+                <h3>อนุรักษ์ธรรมชาติ</h3>
+                <p>ส่งเสริมการเรียนรู้และการดูแลทรัพยากรพืชภายในวิทยาลัย</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p> สวนพฤกษศาสตร์วิทยาลัยเทคนิควังน้ำเย็น</p>
+    </footer>
+
+    <!-- หน้าต่างแสดงรายละเอียดพืช -->
+    <dialog id="plantDialog" class="plant-dialog">
+        <button id="closeDialog" class="close-btn" aria-label="ปิด">✕</button>
+        <div id="plantDetails"></div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
